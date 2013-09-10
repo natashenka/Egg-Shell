@@ -15,6 +15,6 @@ clear LCD
 
 JSR clear_lcd
 
-Read port A (buttones) into A, debounced
+Read port A (buttons) into A, debounced
 
 JSR read_a
