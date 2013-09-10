@@ -1,0 +1,71 @@
+	JSR clear_lcd
+	LDA #0
+	JSR display_image
+	LDA #$3
+	STA $3000
+here:	SEI
+
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	LDA #$40
+	STA $220
+	LDA #$04
+	STA $221
+	LDA #$01
+	STA $222
+	LDA #$00
+	STA $223
+	LDA #$BC
+	STA $224
+	LDA #$BD
+	STA $225
+	JSR $7549
+	JSR $754d
+	JSR $754d
+	JSR $756c
+	JSR $756c		
+	JSR $74B5
+	JMP here

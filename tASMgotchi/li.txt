@@ -1,14 +1,4 @@
 display_image:
-	TAX
-	LDA $C0
-	PHA
-	LDA $C1
-	PHA
-	LDA $C2
-	PHA
-	LDA $C3
-	PHA
-	TXA
 	STA $C1
 	LDA #0
 	STA $C0
@@ -46,15 +36,16 @@ loc_F07D:
 	INC	$c1
 skip:
 	LDA #$4
-	STA $C3	
+	STA $C3
 	JSR $EAFD
+	LDY #8
 	LDX #0
 loc_F07D2:
 	LDA     $70,X
 	STA     ($32),Y
 	INY
 	INX	
-	CPY     #$C
+	CPX    #$4
 	BCC     loc_F07D2
 
 	CLC

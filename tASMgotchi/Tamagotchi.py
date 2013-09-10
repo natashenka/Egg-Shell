@@ -4,19 +4,20 @@ def process(file):
 	i = 0
 	tpl = open("template0.txt", 'rb').read()
 	for item in ifile:
-		s = convi(item)
+		s = convi(item.strip())
 		
 		tpl = tpl[:(0x60000 + i*0x100)] + s + tpl[(0x60000 + i*0x100 + len(s)):] 
+		print i, 
+		print item
+		i = i + 2
 	ft = open("template.txt", 'wb')
 	ft.write(tpl)
-	print i, 
-	print item
-	i = i + 2
-	
+
 	file2 = file[0]
 	f = open(file2, 'r')
 	l = f.readlines()
 	addstart(l)
+	port(l)
 	addlcd(l)
 	f.close()
 	f = open("temporarycode.tmp", 'w')
@@ -27,6 +28,10 @@ def process(file):
 
 def addstart(l):
 	l.insert(0, ".org $200\n")
+def port(l):
+	for i in range(0, len(l)):
+		l[i] = l[i].replace("read_a", "$E209")
+
 	
 
 def addlcd(l):

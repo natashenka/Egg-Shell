@@ -1,0 +1,24 @@
+top:	JSR clear_lcd
+read:	JSR read_a
+	BEQ top
+	TAY
+	AND #1
+	BNE show_c
+	TYA
+	AND #2
+	BNE show_b
+	TYA
+	AND #4
+	BEQ read
+	LDA #4
+	JSR display_image
+	JMP read
+show_b:
+	LDA #2
+	JSR display_image
+	JMP read
+show_c:
+	LDA #0
+	JSR display_image
+	JMP read
+here:	JMP here

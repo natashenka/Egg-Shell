@@ -1,0 +1,4 @@
+	JSR clear_lcd
+	LDA #0
+	JSR display_image
+here:	JMP here

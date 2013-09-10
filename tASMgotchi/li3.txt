@@ -1,20 +1,27 @@
-.org $200
-	JSR $E1EE
-	LDA #0
-	JSR display_image
-here:	JMP here
 display_image:
+	TAX
+	LDA $C0
+	PHA
+	LDA $C1
+	PHA
+	LDA $C2
+	PHA
+	LDA $C3
+	PHA
+	TXA
 	STA $C1
 	LDA #0
 	STA $C0
 	LDA #$6
 	STA $C2
+	LDA #$C
+	STA $C3
+	JSR $EAFD
 	LDA     #0
 	STA     $48
 loc_F062:
-        LDA #$8
-	STA $C3
-	JSR $EAFD              
+	LDA #0
+	STA $47                            
 	LDA     $48
 	ASL
 	TAY
@@ -30,36 +37,20 @@ loc_F07D:
 	STA     ($32),Y
 	INY
 	INX	
-	CPY     #$8
+	CPY     #$C
 	BCC     loc_F07D
 	LDX	#0
 	CLC
-	LDA	#$8
+	LDA	#$C
 	ADC	$c0
 	STA	$c0
 	BCC	skip
 	INC	$c1
-skip:
-	LDA #$4
-	STA $C3
+skip:	INC $47
 	JSR $EAFD
-	LDY #8
-	LDX #0
-loc_F07D2:
-	LDA     $70,X
-	STA     ($32),Y
-	INY
-	INX	
-	CPX    #$4
-	BCC     loc_F07D2
-
-	CLC
-	LDA	#$4
-	ADC	$c0
-	STA	$c0
-	BCC	skip2
-	INC	$c1
-skip2:	
+	LDA $47
+	CMP #0 
+	BNE loc_F07D
 	INC    $48 
 	LDA     $48
 	CMP     #$1F

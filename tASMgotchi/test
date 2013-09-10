@@ -1,0 +1,4 @@
+C:\Users\Natalie\Downloads\Tamagotchi-Hack-master\portrait\test2.bmp	JSR clear_lcd
+	LDA #0
+	JSR display_image
+here:	JMP here
