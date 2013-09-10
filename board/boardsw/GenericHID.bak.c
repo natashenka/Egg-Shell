@@ -227,7 +227,7 @@ void SPI_write(void* ReportData){
 		spi_transfer(0x00);
 		spi_transfer(0x00);
 		PORTB |= 1;
-		_delay_ms(500);
+		_delay_ms(250);
 	}
 	
 		PORTB &= 0xFE;

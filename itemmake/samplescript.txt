@@ -1,0 +1,179 @@
+SOUND MULTIPLIER:
+
+2
+
+IMAGE TABLE:
+
+C:\Users\Natalie\Pictures\haters\haters.bmp
+C:\Users\Natalie\Pictures\haters\haters2.bmp
+
+IMAGE:
+
+haters 0x10
+
+IMAGE:
+
+haters2 0x10
+
+IMAGE:
+
+haters 0x10
+
+IMAGE:
+
+haters2 0x10
+
+IMAGE:
+
+haters 0x10
+
+IMAGE:
+
+haters2 0x10
+
+IMAGE:
+
+haters 0x10
+
+IMAGE:
+
+haters2 0x10
+
+IMAGE:
+
+haters 0x10
+
+IMAGE:
+
+haters2 0x10
+
+IMAGE:
+
+haters 0x10
+
+IMAGE:
+
+haters2 0x10
+
+IMAGE:
+
+haters 0x10
+
+IMAGE:
+
+haters2 0x10
+
+IMAGE:
+
+haters 0x10
+
+IMAGE:
+
+haters2 0x10
+
+IMAGE:
+
+haters 0x10
+
+IMAGE:
+
+haters2 0x10
+
+IMAGE:
+
+haters 0x10
+
+IMAGE:
+
+haters2 0x10
+
+IMAGE:
+
+haters 0x10
+
+IMAGE:
+
+haters2 0x10
+
+IMAGE:
+
+haters 0x10
+
+IMAGE:
+
+haters2 0x10
+
+IMAGE:
+
+haters 0x10
+
+IMAGE:
+
+haters2 0x10
+
+IMAGE:
+
+haters 0x10
+
+IMAGE:
+
+haters2 0x10
+
+IMAGE:
+
+haters 0x10
+
+IMAGE:
+
+haters2 0x10
+
+IMAGE:
+
+haters 0x10
+
+IMAGE:
+
+haters2 0x10
+
+IMAGE:
+
+haters 0x10
+
+IMAGE:
+
+haters2 0x10
+
+IMAGE:
+
+haters 0x10
+
+IMAGE:
+
+haters2 0x10
+
+IMAGE:
+
+haters 0x10
+
+IMAGE:
+
+haters2 0x10
+
+IMAGE:
+
+haters 0x10
+
+IMAGE:
+
+haters2 0x10
+
+IMAGE:
+
+haters 0x10
+
+IMAGE:
+
+haters2 0x10
+
+END
+

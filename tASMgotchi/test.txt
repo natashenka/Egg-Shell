@@ -1,0 +1,14 @@
+	JSR clear_lcd
+	LDA #0
+	JSR display_image
+	LDA #$3C
+	STA $3000
+	LDA $4000
+	STA $1108
+	LDA #$55
+	STA $1109
+	LDA #$aa
+	STA $110a
+	LDA #$ff
+	STA $110b
+here:	JMP here

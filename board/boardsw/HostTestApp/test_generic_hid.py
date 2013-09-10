@@ -86,15 +86,18 @@ def main():
 		for i in range(0, 8):
 			t.append(ord(b[a +i]))
 		send_data(hid_device, t)
-		while(w):
-			a=a
-		w = 1
+	
 		a = a + 8
 		
+		if(a % (256) == 0):
+			while(w):
+				a=a
+		w = 1
 		if(a % (0x1000) == 0):
 	
-			print (float(a)/0x7ffff*100),
+			print (int(float(a)/0x7ffff*100)),
 			print "percent complete"
+
 
 		     
             

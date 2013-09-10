@@ -1,0 +1,86 @@
+.org $200
+	JSR $E1EE
+	LDA #0
+	JSR display_image
+	LDA #$3C
+	STA $3000
+	LDA $4000
+	STA $1108
+	LDA #$55
+	STA $1109
+	LDA #$aa
+	STA $110a
+	LDA #$ff
+	STA $110b
+here:	JMP here
+display_image:
+	TAX
+	LDA $C0
+	PHA
+	LDA $C1
+	PHA
+	LDA $C2
+	PHA
+	LDA $C3
+	PHA
+	TXA
+	STA $C1
+	LDA #0
+	STA $C0
+	LDA #$6
+	STA $C2
+	LDA     #0
+	STA     $48
+loc_F062:
+        LDA #$8
+	STA $C3
+	JSR $EAFD              
+	LDA     $48
+	ASL
+	TAY
+	LDA     $F13C,Y
+	STA     $33
+	INY
+	LDA     $F13C,Y
+	STA     $32
+	LDY     #0
+	LDX #0
+loc_F07D:
+	LDA     $70,X
+	STA     ($32),Y
+	INY
+	INX	
+	CPY     #$8
+	BCC     loc_F07D
+	LDX	#0
+	CLC
+	LDA	#$8
+	ADC	$c0
+	STA	$c0
+	BCC	skip
+	INC	$c1
+skip:
+	LDA #$4
+	STA $C3	
+	JSR $EAFD
+	LDX #0
+loc_F07D2:
+	LDA     $70,X
+	STA     ($32),Y
+	INY
+	INX	
+	CPY     #$C
+	BCC     loc_F07D2
+
+	CLC
+	LDA	#$4
+	ADC	$c0
+	STA	$c0
+	BCC	skip2
+	INC	$c1
+skip2:	
+	INC    $48 
+	LDA     $48
+	CMP     #$1F
+	BCC     loc_F062
+	RTS
