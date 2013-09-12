@@ -1,0 +1,8 @@
+	LDX #0
+	CLI
+top:	JSR clear_lcd
+	
+        JSR $E18b
+	JSR $D21C
+	INX
+	JMP top

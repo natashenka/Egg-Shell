@@ -1,0 +1,21 @@
+	LDA $3016
+	STA $CC
+	JSR clear_lcd
+	LDA #$FF
+	STA $3012
+	LDA #$7
+	STA $3016
+top:	LDA $3012
+	AND #$f8
+	STA $CC
+
+	JSR clear_lcd
+
+read:	LDA $3012
+	AND #$f8
+	CMP $cc
+	BEQ top
+	LDA #6	
+	JSR display_image
+	JMP top
+	

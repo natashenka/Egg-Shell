@@ -1,0 +1,4 @@
+ir\a.bmp
+ir\b.bmp
+ir\c.bmp
+ir\ir.bmp
