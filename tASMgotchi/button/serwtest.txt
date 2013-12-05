@@ -1,0 +1,29 @@
+import serial
+import time
+import sys
+
+#enter your device file
+arddev = sys.argv[1]
+baud = 115200
+
+#setup - if a Serial object can't be created, a SerialException will be raised.
+while True:
+    try:
+        ser = serial.Serial(arddev, baud)
+
+        #break out of while loop when connection is made
+        break
+    except serial.SerialException:
+        print 'waiting for device ' + arddev + ' to be available'
+        time.sleep(3)
+
+#read lines from serial device
+f = open(sys.argv[2], 'rb')
+b = f.read()
+a = 0;
+#
+print "Start"
+while True:
+	print "top"
+	print ser.readline();
+	ser.write("ready");
