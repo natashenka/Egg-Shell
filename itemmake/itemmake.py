@@ -1,5 +1,6 @@
 import sys
 import Image
+import os
 
 def tofourbit(a):
 	#print a
@@ -63,26 +64,26 @@ t = f.read()
 t = bytearray(t)
 f.close()
 sm = 0
-if( script.pop(0).strip("\n\r") != "SOUND MULTIPLIER:"):
+if( script.pop(0).strip(os.linesep) != "SOUND MULTIPLIER:"):
 	print "error"
 script.pop(0)
 
-sm = int(script.pop(0).strip("\n\r"))
+sm = int(script.pop(0).strip(os.linesep))
 
 #print sm
 script.pop(0)
 
-if( script.pop(0).strip("\n\r") != "IMAGE TABLE:"):
+if( script.pop(0).strip(os.linesep) != "IMAGE TABLE:"):
 	print "error"
 
 script.pop(0)
-
-i = script.pop(0).strip("\n\r")
+i = script.pop(0).strip(os.linesep)
 imagetable = []
 
 while(i != ""):
 	imagetable.append(i)
-	i = script.pop(0).strip("\n\r")
+	i = script.pop(0).strip(os.linesep)
+
 
 imdata = ""
 imptr = 0x50000
@@ -117,7 +118,7 @@ ftable = []
 for item in imagetable:
 	index = item.find('.')
 	s = item[:index]
-	s = s[s.rfind('\\')+1:]
+	s = s[s.rfind(os.pathsep)+1:]
 	ftable.append(s)
 #print ftable
 
@@ -125,23 +126,23 @@ cbuf = ""
 on = True
 
 while on:
-	command = script.pop(0).strip("\n\r")
+	command = script.pop(0).strip(os.linesep)
 	if(command == "IMAGE:"):
-		script.pop(0).strip("\n\r")
-		im, time = script.pop(0).strip("\n\r").split(' ')
+		script.pop(0).strip(os.linesep)
+		im, time = script.pop(0).strip(os.linesep).split(' ')
 		cbuf =  cbuf + chr(ftable.index(im) + 0xb1)
 		cbuf = cbuf + "\x80\x00\x00\x00" + chr(int(time, 16))
-		script.pop(0).strip("\n\r")
+		script.pop(0).strip(os.linesep)
 	if(command == "NOTE:"):
-		script.pop(0).strip("\n\r")
-		#print script.pop(0).strip("\n\r")
-		im, note, time = script.pop(0).strip("\n\r").split(' ')
+		script.pop(0).strip(os.linesep)
+		#print script.pop(0).strip(os.linesep)
+		im, note, time = script.pop(0).strip(os.linesep).split(' ')
 		b = "\xfe\xff" + chr(getnote(note)) + "\x00\x00\x00"
 		cbuf = cbuf + chr(ftable.index(im) + 0xb1)  + "\x80\x00\x00\x00\x01"
 		b = b + "\xb0\x80\x00\x00\x00\x03"
 		for j in range(0, sm * int(time, 16)):
 			cbuf = cbuf + b
-		script.pop(0).strip("\n\r")
+		script.pop(0).strip(os.linesep)
 	if(command == "END"):
 		cbuf = cbuf + "\xff\xff"
 		on = False
