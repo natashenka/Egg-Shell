@@ -26,6 +26,15 @@ a = 0;
 #
 t=""
 print "Start"
+
+
+# http://stackoverflow.com/a/3173331
+def update_progress(progress):
+	bash = (progress/5)
+	space = 20 - bash
+	print '\r[{0}{1}] {2}%'.format('#'*(progress/5), ' '*space, progress),
+
+
 start_time = time.time()
 while True:
 
@@ -39,10 +48,10 @@ while True:
 	#	print ser.readline()
 	#print "address",
 
+	update_progress(int(a * 1.0/0x7ffff *100.0))	
+	#print (a * 1.0/0x7ffff *100.0)	
 
-	print (a * 1.0/0x7ffff *100.0)	
-
-	print ser.readline();
+	ser.readline();
 
 	if (a>0x7ffff):
 
