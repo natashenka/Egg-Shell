@@ -115,9 +115,9 @@ for j in range(0, len(imdata)):
 
 ftable = []
 for item in imagetable:
-	index = item.find('.')
+	index = item.rfind('.')
 	s = item[:index]
-	s = s[s.rfind('\\')+1:]
+	s = s[s.rfind('/')+1:]
 	ftable.append(s)
 #print ftable
 
